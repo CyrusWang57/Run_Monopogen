@@ -1,5 +1,5 @@
 site_name: Run Monopogen
-# repo_url: https://github.com/DBinary/DouLabRotation_2023
+repo_url: https://github.com/CyrusWang57/run_monopogen_doc
 site_author: "Chunyi Wang"
 # copyright: "Copyright &copy; 2023, School of Life Sciences, Westlake University"
 theme:
@@ -22,7 +22,6 @@ theme:
         name: Switch to dark mode
       primary: teal
       accent: purple
-
     - scheme: slate 
       toggle:
         icon: material/toggle-switch
@@ -32,42 +31,20 @@ theme:
 
 nav:
 - Homepage: index.md
-- Debug: Debug.md
-# - Tutorials:
-#     - Calculating the telomere length with telseq: Tutorials/telseq.ipynb
-#     - Calculating the telomere length with telomerehunter: Tutorials/telomerehunter.ipynb
-#     - Calculating the telomere length with telomerecat: Tutorials/telomerecat.ipynb
-#     - Calculating the telomere length with computel: Tutorials/computel.ipynb
-  
-# - Debug:
-#     - Bugs of telomerecat: Debug/bug_cat.ipynb
-#     - Bugs of batch size effection: Debug/bug_batch.ipynb
-
-# plugins:
-#   - mkdocs-jupyter
-#   - glightbox
-#   - gen-files:
-#       scripts:
-#       - docs/gen_ref_pages.py
-#   - mkdocstrings:
-#       enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
-#       custom_templates: templates
-#       default_handler: python
-#       handlers:
-#         python:
-#           options:
-#             show_source: false
-#       use_directory_urls: false
-
+- Debug and refinement: Debug.md
+- Issue about formula: Formula.md
+- Parameters: Parameters.md
+- Results: Results.md
+plugins:
+  - search
+  - table-reader
 markdown_extensions:
   - admonition
   - pymdownx.details
-  #- mkautodoc
   - attr_list
   - md_in_html
   - toc:
       permalink: true
-
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight:
@@ -81,9 +58,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
 
 extra_javascript:
-  - javascripts/config.js
+  - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
-extra_css:
-    - css/custom.css

@@ -1,17 +1,23 @@
-# Welcome to MkDocs
+# Welcome to the practice of running Monopogen
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Here are the notes documenting the actual process of running Monopogen.
 
-## Commands
+## Monopogen
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+[Monopogen](https://www.nature.com/articles/s41587-023-01873-x) is an analysis package for SNV calling from single-cell sequencing, developed and maintained by Ken chen's lab in MDACC.
 
-## Project layout
+<figure markdown>
+  ![Image title](./monopogen_image/monopogen_workflow.png){ width="80%" }
+  <figcaption>Monopogen workflow</figcaption>
+</figure>
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Source code of Monopogen can be found at [github.com/KChen-lab/Monopogen](https://github.com/KChen-lab/Monopogen/tree/main).
+
+## Source data
+
+In this note, the data used to run Monopogen is a single cell ATAC sequencing dataset from PBMC by 10X Multiome ([PBMC from a Healthy Donor](https://www.10xgenomics.com/datasets/pbmc-from-a-healthy-donor-no-cell-sorting-3-k-1-standard-2-0-0)).
+
+## Contact
+
+I am a PhD student in [Yanmei Dou's lab](https://douymlab.github.io/) at [School of Life Sciences](https://sls.westlake.edu.cn/), [WestLake University](https://www.westlake.edu.cn/).  
+For more details about the note, please feel free to contact me [wangchunyi@westlake.edu.cn](mailto:wangchunyi@westlake.edu.cn).  
