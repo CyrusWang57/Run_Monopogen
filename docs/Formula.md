@@ -17,6 +17,8 @@ Subsequently, this is used as a reference to calculate the phasing probability o
 
 ## Code implementation
 
+### Code
+
 The code below calculates the phasing probability of de novo SNV.  
 
 ```R
@@ -37,13 +39,18 @@ weigthedP <- function(dis=NULL, match=NULL, table=NULL){
 }
 ```
 
+### Formula
+
+Abstract the above code into below mathematical formula.  
+
+First, for each de novo SNV, calculate distances between it and its nearst germline locus (one locus in two-loci model; two loci in trio-loci model). Then, assume its haplotype $ V_{match} = 0 $ 
+Consider two distinct sets used in the formulation of analysis. Firstly, let $B = \{b_1,b_2,...,b_i,...,b_n\}$ 
+represent the set of multiple physical distance bins. Each element within this set corresponds to a specific bin. Secondly, for each site, define $C = \{c_1,c_2,...,c_i,...,c_n\}$ as the set comprising all cells that exhibit reads at that particular site. For each de novo SNV loucs, calculate 
 
 \begin{align}
-M_{b_i} = \frac {\sum_{c_i \in C} (V_{match} | b_i, c_i)} {N_C} \\
-P_{b_i} = (1 - P_{two_loci} | b_i)^2 \\
-P_{final} = 1 - \frac {\sum_{b_i \in B} (M_{b_i} * P_{b_i})} {\sum_{b_i \in B} P_{b_i}}
+M_{b_i} &= \frac {\sum_{c_i \in C} (V_{match} | b_i, c_i)} {N_C} \tag{1} \\[10pt]
+P_{b_i} &= (1 - P_{two_loci} | b_i)^2 \tag{2} \\[10pt]
+P_{final} &= 1 - \frac {\sum_{b_i \in B} (M_{b_i} * P_{b_i})} {\sum_{b_i \in B} P_{b_i}} \tag{3} 
 \end{align}
 
-The homomorphism $f$ is injective if and only if its kernel is only the
-singleton set $e_G$, because otherwise $\exists a,b\in G$ with $a\neq b$ such
-that $f(a)=f(b)$.
+where $M_{b_i}$ denotes the propotion of 
