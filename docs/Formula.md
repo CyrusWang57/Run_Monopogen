@@ -43,9 +43,9 @@ weigthedP <- function(dis=NULL, match=NULL, table=NULL){
 
 Abstract the above code into below mathematical formula.  
 
-First, for each de novo SNV, calculate distances between it and its nearst germline locus (one locus in two-loci model; two loci in trio-loci model). Then, assume its haplotype $ V_{match} = 0 $ 
+First, for each de novo SNV, the distances to the nearest germline locus are calculated (one locus in the two-loci model and two loci in the trio-loci model). Subsequently, a phasing mode is fitted (`0|1` or `1|0`). Set $V_{match} = 1$ if the observed allele matches the nearest germline locus in this phasing mode, and $V_{match} = 0$ otherwise.  
 Consider two distinct sets used in the formulation of analysis. Firstly, let $B = \{b_1,b_2,...,b_i,...,b_n\}$ 
-represent the set of multiple physical distance bins. Each element within this set corresponds to a specific bin. Secondly, for each site, define $C = \{c_1,c_2,...,c_i,...,c_n\}$ as the set comprising all cells that exhibit reads at that particular site. For each de novo SNV loucs, calculate 
+represent the set of multiple physical distance bins. Each element within this set corresponds to a specific bin. Secondly, for each site, define $C = \{c_1,c_2,...,c_i,...,c_n\}$ as the set comprising all cells that exhibit reads at that particular site. For each de novo SNV loucs, calculate  
 
 \begin{align}
 M_{b_i} &= \frac {\sum_{c_i \in C} (V_{match} | b_i, c_i)} {N_C} \tag{1} \\[10pt]
@@ -53,4 +53,19 @@ P_{b_i} &= (1 - P_{two_loci} | b_i)^2 \tag{2} \\[10pt]
 P_{final} &= 1 - \frac {\sum_{b_i \in B} (M_{b_i} * P_{b_i})} {\sum_{b_i \in B} P_{b_i}} \tag{3} 
 \end{align}
 
-where $M_{b_i}$ denotes the propotion of 
+where $V_{match} | b_i, c_i$ denots $V_{match} value in a specific bin $b_i$ and cell $c_i$, $N_C$ denotes the count of cells that have reads in this locus, $M_{b_i}$ denotes the average of $V_{match}$ among cells in the $b_i$, $P_{two_loci} | b_i$ denots two-locus germline LD-refinement score in the $b_i$, $P_{b_i}$ denotes the reciprocal square value of $P_{two_loci} | b_i$ in the $b_i$.  
+
+The calculation process of $P_{final}$ in trio-locus model is the same as above.  
+If one of the two-loci and trio-loci LD-refinement scores is missing, $P_{final}$ is refined as the existing score among the two.  If both of them exist, $P_{final}$ is refined as the average of two score:  
+
+\begin{align}
+P_{final} = \frac {P_{final,two-locus} + P_{final,trio-locus}} {2} \tag{4} 
+\end{align}
+
+If $P_{final} < 0.5$, $P_{final}$ is refined as its reciprocal:  
+
+\begin{align}
+P_{final} = 1 - P_{final} \tag{5}
+\end{align}
+
+## Discussion
