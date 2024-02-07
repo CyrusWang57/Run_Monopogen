@@ -7,11 +7,6 @@ Full notes published in this website: [Run Monopogen](https://cyruswang57.github
 
 [Monopogen](https://www.nature.com/articles/s41587-023-01873-x) is an analysis package for SNV calling from single-cell sequencing, developed and maintained by Ken chen's lab in MDACC.
 
-<figure markdown>
-  ![Image title](./monopogen_image/monopogen_workflow.png){ width="80%" }
-  <figcaption>Monopogen workflow</figcaption>
-</figure>
-
 Source code of Monopogen can be found at [github.com/KChen-lab/Monopogen](https://github.com/KChen-lab/Monopogen/tree/main).
 
 ## Source data
