@@ -1,8 +1,8 @@
 # Welcome to the practice of running Monopogen
 
 Here are the notes documenting the actual process of running Monopogen.  
-Full notes published in this website: [Run Monopogen](https://cyruswang57.github.io/Run_Monopogen/)
-)).
+Full notes published in this website: [Run Monopogen](https://cyruswang57.github.io/Run_Monopogen/).
+
 ## Monopogen
 
 [Monopogen](https://www.nature.com/articles/s41587-023-01873-x) is an analysis package for SNV calling from single-cell sequencing, developed and maintained by Ken chen's lab in MDACC.
