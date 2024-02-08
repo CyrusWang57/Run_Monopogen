@@ -1,4 +1,4 @@
-# Issue about formula
+# Formula
 
 ## Methods in paper
 
