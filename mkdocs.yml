@@ -32,7 +32,7 @@ theme:
 nav:
 - Homepage: index.md
 - Debug and refinement: Debug.md
-- Issue about formula: Formula.md
+- Formula: Formula.md
 - Parameters: Parameters.md
 - Results: Results.md
 plugins:
